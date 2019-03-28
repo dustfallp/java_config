@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001
+spring:
+  application:
+    name: USER-PROVIDER
+  profiles: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+server:
+  port: 8002
+spring:
+  application:
+    name: USER-PROVIDER-TEST
+  profiles: test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+server:
+  port: 9527
+spring:
+  application:
+    name: MICROSERVICE-ZUUL-GATEWAY
+  profiles: zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway-9527 #在注册中心显示的名称
+    prefer-ip-address: true #是否在注册中心显示IP地址
+zuul:
+  routes:
+    wdUser.serviceId: plat-provider
+    wdUser.path: /plat/**  #映射路径，找这个路径的就直接映射到serviceId
+  prefix: "/aigou"
+  ignored-services: "*"
+---    

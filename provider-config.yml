@@ -64,6 +64,9 @@ zuul:
   routes:
     wdUser.serviceId: plat-provider
     wdUser.path: /plat/**  #映射路径，找这个路径的就直接映射到serviceId
+    product.serviceId: product-provider
+    product.path: /product/**  #映射路径，找这个路径的就直接映射到serviceId
   prefix: "/aigou"
   ignored-services: "*"
----    
+---
+    

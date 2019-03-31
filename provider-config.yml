@@ -69,4 +69,3 @@ zuul:
   prefix: "/aigou"
   ignored-services: "*"
 ---
-    

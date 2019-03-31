@@ -14,11 +14,34 @@ eureka:
       defaultZone: http://localhost:7001/eureka
 ---
 server:
-  port: 8002
+  port: 8101
 spring:
   application:
     name: USER-PROVIDER-TEST
   profiles: test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+---
+server:
+  port: 8002
+spring:
+  application:
+    name: PRODUCT-PROVIDER
+  profiles: productdev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+server:
+  port: 8102
+spring:
+  application:
+    name: PRODUCT-PROVIDER-TEST
+  profiles: product
 eureka:
   client:
     service-url:

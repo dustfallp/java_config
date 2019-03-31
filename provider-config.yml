@@ -6,7 +6,7 @@ server:
   port: 8001
 spring:
   application:
-    name: PLAT-PROVIDER
+    name: USER-PROVIDER
   profiles: dev
 eureka:
   client:
@@ -14,11 +14,34 @@ eureka:
       defaultZone: http://localhost:7001/eureka
 ---
 server:
+  port: 8101
+spring:
+  application:
+    name: USER-PROVIDER-TEST
+  profiles: test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+---
+server:
   port: 8002
 spring:
   application:
-    name: PLAT-PROVIDER-TEST
-  profiles: test
+    name: PRODUCT-PROVIDER
+  profiles: productdev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+server:
+  port: 8102
+spring:
+  application:
+    name: PRODUCT-PROVIDER-TEST
+  profiles: product
 eureka:
   client:
     service-url:
@@ -41,6 +64,8 @@ zuul:
   routes:
     wdUser.serviceId: plat-provider
     wdUser.path: /plat/**  #映射路径，找这个路径的就直接映射到serviceId
+    product.serviceId: product-provider
+    product.path: /product/**  #映射路径，找这个路径的就直接映射到serviceId
   prefix: "/aigou"
   ignored-services: "*"
----    
+---

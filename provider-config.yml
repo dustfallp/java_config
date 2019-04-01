@@ -64,6 +64,29 @@ mybatis-plus:
   mapper-locations: classpath:cn/itsource/aigou/mapper/*Mapper.xml
   type-aliases-package: cn.itsource.aigou.domain,cn.itsource.aigou.query
 ---
+---
+server:
+  port: 8003
+spring:
+  application:
+    name: COMMON-PROVIDER
+  profiles: comondev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
+server:
+  port: 8103
+spring:
+  application:
+    name: COMMON-PROVIDER-TEST
+  profiles: commontest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+---
 server:
   port: 9527
 spring:
@@ -83,6 +106,8 @@ zuul:
     wdUser.path: /plat/**  #映射路径，找这个路径的就直接映射到serviceId
     product.serviceId: product-provider
     product.path: /product/**  #映射路径，找这个路径的就直接映射到serviceId
+    common.serviceId: common-provider
+    common.path: /common/**  #映射路径，找这个路径的就直接映射到serviceId
   prefix: "/aigou"
   ignored-services: "*"
 ---

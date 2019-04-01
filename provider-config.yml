@@ -73,7 +73,7 @@ mybatis-plus:
 ---
 server:
   port: 8003
-  max-http-header-size: 4048576 #Request header is too large异常解决
+  max-http-header-size: 404857600 #Request header is too large异常解决
 spring:
   application:
     name: COMMON-PROVIDER
@@ -85,7 +85,7 @@ eureka:
 ---
 server:
   port: 8103
-  max-http-header-size: 4048576 #Request header is too large异常解决
+  max-http-header-size: 404857600 #Request header is too large异常解决
 spring:
   application:
     name: COMMON-PROVIDER-TEST

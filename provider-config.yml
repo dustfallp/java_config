@@ -77,6 +77,10 @@ server:
 spring:
   application:
     name: COMMON-PROVIDER
+  data:
+      elasticsearch:
+        cluster-name: elasticsearch  # 这里的名字必须是这样
+        cluster-nodes: 127.0.0.1:9300  # ElasticSearch 所在的位置
   profiles: comondev
 eureka:
   client:
@@ -88,7 +92,11 @@ server:
   max-http-header-size: 404857600 #Request header is too large异常解决
 spring:
   application:
-    name: COMMON-PROVIDER-TEST
+    name: COMMON-PROVIDER
+  data:
+      elasticsearch:
+        cluster-name: elasticsearch  # 这里的名字必须是这样
+        cluster-nodes: 127.0.0.1:9300  # ElasticSearch 所在的位置
   profiles: commontest
 eureka:
   client:

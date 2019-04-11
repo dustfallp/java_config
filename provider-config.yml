@@ -78,9 +78,9 @@ spring:
   application:
     name: COMMON-PROVIDER
   data:
-      elasticsearch:
-        cluster-name: elasticsearch  # 这里的名字必须是这样
-        cluster-nodes: 127.0.0.1:9300  # ElasticSearch 所在的位置
+    elasticsearch:
+      cluster-name: elasticsearch  # 这里的名字必须是这样
+      cluster-nodes: 127.0.0.1:9300  # ElasticSearch 所在的位置
   profiles: comondev
 eureka:
   client:
